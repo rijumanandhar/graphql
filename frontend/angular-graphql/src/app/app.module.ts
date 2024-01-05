@@ -5,6 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { GraphQLModule } from './graphql.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+
+import { CompanyModule } from './company/company.module'
+import { UserModule } from './user/user.module'
+import { DashboardModule } from './dashboard/dashboard.module'
 
 @NgModule({
   declarations: [
@@ -14,7 +24,17 @@ import { GraphQLModule } from './graphql.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    GraphQLModule
+    GraphQLModule,
+    BrowserAnimationsModule,
+
+    MatButtonModule,
+    MatToolbarModule,
+    MatListModule,
+    MatIconModule,
+
+    CompanyModule,
+    UserModule,
+    DashboardModule,
   ],
   providers: [
     provideClientHydration()
