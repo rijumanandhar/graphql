@@ -5,6 +5,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatSelectModule,
     MatInputModule,
     MatFormFieldModule,
+    MatCardModule,
   ],
  
 })

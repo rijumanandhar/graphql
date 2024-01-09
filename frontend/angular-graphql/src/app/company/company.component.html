@@ -1,0 +1,122 @@
+<div class="grid grid-cols-2 gap-2 m-10">
+  <div class="">
+    <button class="float-right"> Add</button>
+    <h1 class="text-5xl mt-5 font-bold text-center">
+      Company Info
+    </h1>
+    <div>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef>No.</th>
+          <td mat-cell *matCellDef="let element">{{element.position}}</td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{element.name}}</td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+          <th mat-header-cell *matHeaderCellDef>Weight</th>
+          <td mat-cell *matCellDef="let element">{{element.weight}}</td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef>Symbol</th>
+          <td mat-cell *matCellDef="let element">{{element.symbol}}</td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+            mat-row
+            (click)="clickedRows.add(row)"
+            [class.demo-row-is-clicked]="clickedRows.has(row)"
+            *matRowDef="let row; columns: displayedColumns;"
+        ></tr>
+      </table>
+      
+      <div>
+        <h3>
+          Click Log
+        </h3>
+      </div>
+      
+      @if (!clickedRows.size) {
+        <div>Clicked rows will be logged here</div>
+      }
+      
+      <ul>
+        @for (clickedRow of clickedRows; track clickedRow) {
+          <li>Clicked on {{clickedRow.name}}</li>
+        }
+      </ul>
+    </div>
+  </div>
+  <div class="">
+    <mat-card>
+      <mat-card-header>Company Info</mat-card-header>
+      <mat-card-content>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad explicabo nobis ratione laudantium neque mollitia expedita in. Blanditiis quam omnis, magni odio necessitatibus rem aliquam tempore odit quod soluta voluptas!
+      </mat-card-content>
+      <mat-card-actions>
+        <button>Edit</button>
+      </mat-card-actions>
+    </mat-card>
+    <br><br>
+    <div>
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef>No.</th>
+          <td mat-cell *matCellDef="let element">{{element.position}}</td>
+        </ng-container>
+      
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{element.name}}</td>
+        </ng-container>
+      
+        <!-- Weight Column -->
+        <ng-container matColumnDef="weight">
+          <th mat-header-cell *matHeaderCellDef>Weight</th>
+          <td mat-cell *matCellDef="let element">{{element.weight}}</td>
+        </ng-container>
+      
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="symbol">
+          <th mat-header-cell *matHeaderCellDef>Symbol</th>
+          <td mat-cell *matCellDef="let element">{{element.symbol}}</td>
+        </ng-container>
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+            mat-row
+            (click)="clickedRows.add(row)"
+            [class.demo-row-is-clicked]="clickedRows.has(row)"
+            *matRowDef="let row; columns: displayedColumns;"
+        ></tr>
+      </table>
+      
+      <div>
+        <h3>
+          Click Log
+        </h3>
+      </div>
+      
+      @if (!clickedRows.size) {
+        <div>Clicked rows will be logged here</div>
+      }
+      
+      <ul>
+        @for (clickedRow of clickedRows; track clickedRow) {
+          <li>Clicked on {{clickedRow.name}}</li>
+        }
+      </ul>
+    </div>
+  </div>
+</div>
