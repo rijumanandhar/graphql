@@ -1,14 +1,14 @@
 export class User{
-    id!: number;
-    username!: string;
-    fullname!: string;
-    email!: string;
-    photo!: string;
-    phone!: string;
-    companyId!: number;
+    id: number;
+    username: string;
+    fullname: string;
+    email: string;
+    photo: string;
+    phone: string;
+    companyId: number;
 };
 
-export const UserColumns = ["username","fullname", "email", "photo", "phone", "companyId"]
+export const UserColumns = ["username","fullname", "email", "photo", "phone"]
 
 export const UserData: User[] = [
     {
