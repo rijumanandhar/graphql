@@ -1,4 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  MatDialog,
+  MAT_DIALOG_DATA,
+  MatDialogRef,
+  MatDialogTitle,
+  MatDialogContent,
+  MatDialogActions,
+  MatDialogClose,
+} from '@angular/material/dialog';
+import { AddCompanyComponent } from './add-company/add-company.component';
+import { Company, CompanyColumns, CompanyData} from './company.util'
 
 export interface PeriodicElement {
   name: string;
@@ -19,17 +30,37 @@ const ELEMENT_DATA: PeriodicElement[] = [
   {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
   {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
 ];
-
 @Component({
   selector: 'company',
   templateUrl: './company.component.html',
   styleUrl: './company.component.css'
 })
 export class CompanyComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'action'];
+  // dataSource = ELEMENT_DATA;
   clickedRows = new Set<PeriodicElement>();
+  displayedColumns: string[] = CompanyColumns;
+  dataSource = CompanyData;
+  // clickedRows = new Set<PeriodicElement>();
+
+  constructor(public dialog: MatDialog){}
   ngOnInit(): void {
    
+  }
+
+  public clickCompany(data:any){
+    console.log(data);
+  }
+
+  public addCompany(){
+    const dialogRef = this.dialog.open(AddCompanyComponent//, {
+     // data: {name: null, animal: null},
+    //}
+    );
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Success');
+      // this.animal = result;
+    });
   }
 }
