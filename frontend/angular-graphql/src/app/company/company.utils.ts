@@ -1,9 +1,9 @@
 export class Company{
-    id!: number;
-    companyName!: string;
-    phoneNumber!: string;
-    email!: string;
-    companyLogo!: string;
+    id: number;
+    companyName: string;
+    phoneNumber: string;
+    email: string;
+    companyLogo: string;
 };
 
 export const CompanyColumns = ["name","phoneNumber", "email", "logo"]
