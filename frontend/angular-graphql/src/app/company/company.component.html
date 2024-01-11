@@ -1,6 +1,6 @@
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-2 m-2">
   <div class="">
-    <button class="float-right"> Add</button>
+    <button class="float-right pr-5 pt-3"> Add</button>
     <h1 class="text-5xl mt-5 font-bold text-center">
       Company Info
     </h1>
@@ -34,13 +34,14 @@
         <tr
             mat-row
             (click)="clickCompany(row)"
+            class="hover:bg-accent-yellow"
             [class.demo-row-is-clicked]="false"
             *matRowDef="let row; columns: displayedColumnsCompany;"
         ></tr>
       </table>
     </div>
-    <div *ngIf="selectedCompany">
-      <h1 class="text-5xl mt-5 font-bold text-center">
+    <div *ngIf="selectedCompany" class="mt-10">
+      <h1 class="text-5xl font-bold text-center">
         User Data for {{selectedCompany.companyName}}
       </h1>
       <div>
@@ -78,7 +79,8 @@
           <tr mat-header-row *matHeaderRowDef="displayedColumnsUser"></tr>
           <tr
               mat-row
-              (click)="clickCompany(row)"
+              (click)="clickUser(row)"
+              class="hover:bg-accent-yellow"
               [class.demo-row-is-clicked]="false"
               *matRowDef="let row; columns: displayedColumnsUser;"
           ></tr>
@@ -86,15 +88,37 @@
       </div>
     </div>
   </div>
-  <div class="ml-10">
+  <div class="ml-10" *ngIf="selectedCompany">
     <mat-card class="mt-12 mb-5 p-5">
-      <mat-card-header>Company Info</mat-card-header>
-      <mat-card-content>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad explicabo nobis ratione laudantium neque mollitia expedita in. Blanditiis quam omnis, magni odio necessitatibus rem aliquam tempore odit quod soluta voluptas!
+      <mat-card-header>
+        <div class="grid grid-cols-2 gap-72">
+          <div>
+            <h1 class="text-5xl mt-5 font-bold">
+              Company Info
+            </h1>
+          </div>
+          <div>
+            <button class="float-right pt-3">Edit</button>
+          </div>
+        </div>    
+      </mat-card-header>
+      <mat-card-content class="p-5">
+        <div class="grid grid-cols-2">
+          <div>
+            <p> Name :</p>
+            <p>{{selectedCompany.companyName}}</p>
+            <br>
+            <p>Email : </p>
+            <p>{{selectedCompany.email}}</p>
+            <br>
+            <p>Phone Number:</p>
+            <p>{{selectedCompany.phoneNumber}}</p>
+          </div>
+          <div class="pl-24">
+            <img src="../../assets/1.jpg" class="companyIcon">
+          </div>
+        </div>
       </mat-card-content>
-      <mat-card-actions>
-        <button>Edit</button>
-      </mat-card-actions>
     </mat-card>
   </div>
 </div>

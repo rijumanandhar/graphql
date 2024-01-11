@@ -10,7 +10,7 @@ import {
 } from '@angular/material/dialog';
 import { AddCompanyComponent } from './add-company/add-company.component';
 import { Company, CompanyColumns, CompanyData} from './company.utils'
-import {UserColumns, UserData} from '../user/user.utils'
+import {User, UserColumns, UserData} from '../user/user.utils'
 
 @Component({
   selector: 'company',
@@ -37,6 +37,18 @@ export class CompanyComponent implements OnInit {
     this.selectedCompany.email = data.email;
     this.selectedCompany.phoneNumber = data.phoneNumber;
     this.selectedCompany.companyLogo = data.companyLogo;
+  }
+
+  public clickUser(data:User){
+    const selectedUserData = new User();
+    selectedUserData.id = data.id;
+    selectedUserData.companyId = data.companyId;
+    selectedUserData.email = data.email;
+    selectedUserData.fullname = data.fullname;
+    selectedUserData.username = data.username;
+    selectedUserData.phone = data.phone;
+    selectedUserData.photo = data.photo;
+    console.log(selectedUserData);
   }
 
   public addCompany(){
