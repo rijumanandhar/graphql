@@ -1,0 +1,39 @@
+<div *ngIf="selectedUserData">
+    <mat-card class="mt-12 mb-5 p-5">
+      <mat-card-header>
+        <div class="grid grid-cols-2 gap-72">
+          <div>
+            <h1 class="text-5xl mt-5 font-bold">
+              User Info
+            </h1>
+          </div>
+          <div>
+            <button class="float-right pt-3 border-none" (click)="editUser()">Edit</button>
+          </div>
+        </div>    
+      </mat-card-header>
+      <mat-card-content class="p-5">
+        <div class="grid grid-cols-2">
+          <div>
+            <p> Name :</p>
+            <p>{{selectedUserData.fullname}}</p>
+            <br>
+            <p>Email : </p>
+            <p>{{selectedUserData.email}}</p>
+            <br>
+            <p>Phone Number:</p>
+            <p>{{selectedUserData.phone}}</p>
+            <br>
+            <p>Username:</p>
+            <p>{{selectedUserData.username}}</p>
+            <br>
+            <p>Company:</p>
+            <p>{{selectedUserData.companyId}}</p>
+          </div>
+          <div class="pl-24">
+            <img src="../../assets/1.jpg" class="userIcon">
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
