@@ -1,4 +1,4 @@
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-2 m-2">
+<div class="grid grid-cols-1 lg:grid-cols-2 m-2 bg-red-500">
     <div class="">
       <button class="float-right pr-5 pt-3 hover:bg-accent-yellow" (click)="addUser()"> Add</button>
       <h1 class="text-5xl mt-5 font-bold text-center">
@@ -43,7 +43,7 @@
         </table>
       </div>
     </div>
-    <div class="ml-10" *ngIf="selectedUser">
-      <view-user-profile></view-user-profile>
+    <div class="w-96" *ngIf="selectedUser">
+      <view-user-profile [selectedUserData]="selectedUser"></view-user-profile>
     </div>
   </div>
