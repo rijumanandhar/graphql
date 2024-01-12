@@ -1,1 +1,49 @@
-<p>user works</p>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-2 m-2">
+    <div class="">
+      <button class="float-right pr-5 pt-3 hover:bg-accent-yellow" (click)="addUser()"> Add</button>
+      <h1 class="text-5xl mt-5 font-bold text-center">
+        Users Info
+      </h1>
+      <!-- user table here -->
+      <div>
+        <table mat-table [dataSource]="dataSourceUser" class="mat-elevation-z8 demo-table">
+          <ng-container matColumnDef="username">
+            <th mat-header-cell *matHeaderCellDef>username</th>
+            <td mat-cell *matCellDef="let element">{{element.username}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="fullname">
+            <th mat-header-cell *matHeaderCellDef>Full Name</th>
+            <td mat-cell *matCellDef="let element">{{element.fullname}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef>Email Address</th>
+            <td mat-cell *matCellDef="let element">{{element.email}}</td>
+          </ng-container>
+        
+          <ng-container matColumnDef="photo">
+            <th mat-header-cell *matHeaderCellDef>Photo</th>
+            <td mat-cell *matCellDef="let element">{{element.photo}}</td>
+          </ng-container>
+
+           <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef>Phone</th>
+            <td mat-cell *matCellDef="let element">{{element.phone}}</td>
+          </ng-container>
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumnsUser"></tr>
+          <tr
+              mat-row
+              (click)="clickUser(row)"
+              class="hover:bg-accent-yellow"
+              [class.demo-row-is-clicked]="false"
+              *matRowDef="let row; columns: displayedColumnsUser;"
+          ></tr>
+        </table>
+      </div>
+    </div>
+    <div class="ml-10" *ngIf="selectedUser">
+      <view-user-profile></view-user-profile>
+    </div>
+  </div>
