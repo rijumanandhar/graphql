@@ -7,6 +7,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import {AddCompanyComponent} from './add-company/add-company.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,6 +22,8 @@ import {AddCompanyComponent} from './add-company/add-company.component'
     MatInputModule,
     MatFormFieldModule,
     MatCardModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
  
 })

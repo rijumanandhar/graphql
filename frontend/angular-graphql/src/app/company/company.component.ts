@@ -52,14 +52,28 @@ export class CompanyComponent implements OnInit {
   }
 
   public addCompany(){
-    const dialogRef = this.dialog.open(AddCompanyComponent//, {
-     // data: {name: null, animal: null},
-    //}
+    console.log('add company')
+    const dialogRef = this.dialog.open(AddCompanyComponent, {
+      height: '400px',
+      width: '600px',
+    }
     );
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('Success');
-      // this.animal = result;
+    });
+  }
+
+  public editCompany(){
+    const dialogRef = this.dialog.open(AddCompanyComponent, {
+      height: '400px',
+      width: '600px',
+      data: this.selectedCompany,
+    }
+    );
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Success');
     });
   }
 }
