@@ -8,11 +8,13 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ViewUserDialogComponent } from './view-user-dialog/view-user-dialog.component';
 
 @NgModule({
   declarations: [
     UserComponent,
     ViewUserProfileComponent,
+    ViewUserDialogComponent,
   ],
   imports: [
     BrowserModule,

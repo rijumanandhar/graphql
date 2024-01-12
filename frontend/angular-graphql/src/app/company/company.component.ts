@@ -11,7 +11,7 @@ import {
 import { AddCompanyComponent } from './add-company/add-company.component';
 import { Company, CompanyColumns, CompanyData} from './company.utils'
 import {User, UserColumns, UserData} from '../user/user.utils'
-import { ViewUserProfileComponent } from '../user/view-user-profile/view-user-profile.component';
+import { ViewUserDialogComponent } from '../user/view-user-dialog/view-user-dialog.component';
 
 @Component({
   selector: 'company',
@@ -49,7 +49,7 @@ export class CompanyComponent implements OnInit {
     selectedUserData.username = data.username;
     selectedUserData.phone = data.phone;
     selectedUserData.photo = data.photo;
-    const dialogRef = this.dialog.open(ViewUserProfileComponent, {
+    const dialogRef = this.dialog.open(ViewUserDialogComponent, {
       data: selectedUserData,
     }
     );

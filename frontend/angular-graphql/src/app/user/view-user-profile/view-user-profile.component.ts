@@ -9,19 +9,8 @@ import { User } from '../user.utils';
 export class ViewUserProfileComponent implements OnInit {
     @Input() selectedUserData: User
 
-    // constructor(@Inject(MAT_DIALOG_DATA) public data?: User) { }
 
     ngOnInit(): void {
-        // if(this.data){
-        //     this.selectedUserData = new User();
-        //     this.selectedUserData.id = this.data.id;
-        //     this.selectedUserData.companyId = this.data.companyId;
-        //     this.selectedUserData.email = this.data.email;
-        //     this.selectedUserData.fullname = this.data.fullname;
-        //     this.selectedUserData.username = this.data.username;
-        //     this.selectedUserData.phone = this.data.phone;
-        //     this.selectedUserData.photo = this.data.photo;
-        // }
     }
 
     public editUser(){}
