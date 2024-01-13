@@ -21,7 +21,7 @@ export class Users extends BaseEntity{
     @Column()
     phone!: string;
 
-    // @Column()
-    // companyId!: number;
+    @Column()
+    companyId!: number;
 
 }
