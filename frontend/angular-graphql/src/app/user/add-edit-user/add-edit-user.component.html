@@ -1,13 +1,21 @@
 <div class="p-10">
     <h1>{{updateMode? "Update" : "Add"}} Company Details</h1>
-    <form [formGroup]="companyFormGroup">
+    <form [formGroup]="userFormGroup">
         <mat-form-field class="w-full">
-            <mat-label>Company Name</mat-label>
-            <input matInput formControlName="name">
+            <mat-label>Full Name</mat-label>
+            <input matInput formControlName="fullname">
         </mat-form-field>
         <mat-form-field class="w-full">
             <mat-label>Phone Number</mat-label>
             <input matInput formControlName="phone">
+        </mat-form-field>
+        <mat-form-field class="w-full">
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="username">
+        </mat-form-field>
+        <mat-form-field class="w-full">
+            <mat-label>Company</mat-label>
+            <input matInput formControlName="company">
         </mat-form-field>
         <mat-form-field class="w-full">
             <mat-label>Email</mat-label>

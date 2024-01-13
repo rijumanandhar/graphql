@@ -10,11 +10,13 @@ import { User } from '../user.utils';
 })
 export class AddEditUserComponent implements OnInit {
   public updateMode = false;
-  public companyFormGroup = new FormGroup({
-    name: new FormControl(''),
+  public userFormGroup = new FormGroup({
+    fullname: new FormControl(''),
+    username: new FormControl(''),
     phone: new FormControl(''),
     email: new FormControl(''),
     photo: new FormControl(''),
+    company: new FormControl(),
   });
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: User) { }
@@ -22,10 +24,12 @@ export class AddEditUserComponent implements OnInit {
   ngOnInit(): void {
    if(this.data){
     this.updateMode = true;
-    // this.companyFormGroup.get('name')?.setValue(this.data.companyName);
-    // this.companyFormGroup.get('phone')?.setValue(this.data.phoneNumber);
-    // this.companyFormGroup.get('email')?.setValue(this.data.email);
-    // this.companyFormGroup.get('photo')?.setValue(this.data.companyLogo);
+    this.userFormGroup.get('fullname')?.setValue(this.data.fullname);
+    this.userFormGroup.get('username')?.setValue(this.data.username);
+    this.userFormGroup.get('phone')?.setValue(this.data.photo);
+    this.userFormGroup.get('email')?.setValue(this.data.email);
+    this.userFormGroup.get('photo')?.setValue(this.data.photo);
+    this.userFormGroup.get('company')?.setValue(this.data.companyId);
    }
   }
 

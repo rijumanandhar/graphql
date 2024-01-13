@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {User, UserColumns, UserData} from './user.utils'
+import { MatDialog } from '@angular/material/dialog';
+import { AddEditUserComponent } from './add-edit-user/add-edit-user.component';
 
 
 @Component({
@@ -11,6 +13,8 @@ export class UserComponent implements OnInit {
   public dataSourceUser = UserData;
   public displayedColumnsUser = UserColumns;
   public selectedUser : User;
+
+  constructor(public dialog: MatDialog){}
 
   ngOnInit(): void {
    
@@ -27,5 +31,9 @@ export class UserComponent implements OnInit {
     this.selectedUser.photo = data.photo;
   }
 
-  public addUser(){}
+  public addUser(){
+    const dialogRef = this.dialog.open(AddEditUserComponent, {
+      width: '600px',
+    })
+  }
 }
