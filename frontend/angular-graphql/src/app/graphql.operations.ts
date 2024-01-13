@@ -14,6 +14,38 @@ export const GET_USERS = gql`
     }
 `
 
+export const CREATE_USER = gql`
+    mutation CreateUser(
+        $username: String!, 
+        $name: String!, 
+        $email: String!, 
+        $phone: String!, 
+        $photo: String!, 
+        $companyId: Int!)
+        {
+            createUser(username:$username,fullname:$name,email:$email,phone:$phone,photo:$photo,companyId:$companyId){
+                fullname
+            }
+        }
+`
+
+export const UPDATE_USER = gql`
+    mutation UpdateUser($id: ID!,$username: String!, $name: String!, $email: String!, $phone: String!, $photo: String!, $companyId: Int!)
+    {
+        updateUser(id:$id, username:$username,fullname:$name, email:$email, phone:$phone, photo:$photo, companyId:$companyId){
+            fullname
+        }
+    }
+`
+
+export const DELETE_USER = gql`
+    mutation UDeleteUser($id: ID!){
+        deleteUser(id:$id){
+            id
+        }
+    }
+`
+
 export const GET_ALL_COMPANY = gql`
     query{
         getAllCompany{
@@ -22,6 +54,15 @@ export const GET_ALL_COMPANY = gql`
             email
             logo
             phone
+        }
+    }
+`
+
+export const GET_COMPANY_NAME_ID = gql`
+     query{
+        getAllCompany{
+            id
+            name
         }
     }
 `

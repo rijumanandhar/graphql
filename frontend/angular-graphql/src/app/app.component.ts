@@ -12,15 +12,7 @@ export class AppComponent implements OnInit {
   users: any[] = [];
   error: any
 
-  constructor(private appllo: Apollo){}
+  constructor(){}
 
-  ngOnInit(): void {
-    this.appllo.watchQuery({
-      query: GET_USERS
-    }).valueChanges.subscribe(({ data, error}: any ) => {
-      this.users = data.getAllUsers;
-      this.error = error;
-      console.log(this.users)
-    })
-  }
+  ngOnInit(): void {}
 }

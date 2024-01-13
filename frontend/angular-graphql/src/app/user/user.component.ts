@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {User, UserColumns, UserData} from './user.utils'
 import { MatDialog } from '@angular/material/dialog';
 import { AddEditUserComponent } from './add-edit-user/add-edit-user.component';
+import { Apollo } from 'apollo-angular';
+import { GET_USERS } from '../graphql.operations';
 
 
 @Component({
@@ -14,10 +16,18 @@ export class UserComponent implements OnInit {
   public displayedColumnsUser = UserColumns;
   public selectedUser : User;
 
-  constructor(public dialog: MatDialog){}
+  constructor(
+    public dialog: MatDialog,
+    private appllo: Apollo,
+  ){}
 
   ngOnInit(): void {
-   
+    this.appllo.watchQuery({
+      query: GET_USERS
+    }).valueChanges.subscribe(({ data, error}: any ) => {
+      this.dataSourceUser = data.getAllUsers;
+      console.log(this.dataSourceUser)
+    })
   }
 
   public clickUser(data: User){

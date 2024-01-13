@@ -28,7 +28,7 @@ export const UPDATE_USER = {
         email: {type: GraphQLString},
         photo: {type: GraphQLString},
         phone: {type: GraphQLString},
-        // companyId: {type: GraphQLInt}
+        companyId: {type: GraphQLInt}
     },
     async resolve(parent: any, args: any) {
         const { id, username, fullname, email, photo, phone} = args;

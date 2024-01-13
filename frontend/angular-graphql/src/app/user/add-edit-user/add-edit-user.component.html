@@ -15,8 +15,10 @@
         </mat-form-field>
         <mat-form-field class="w-full">
             <mat-label>Company</mat-label>
-            <input matInput formControlName="company">
-        </mat-form-field>
+            <mat-select formControlName="company" class="w-full">
+                <mat-option *ngFor="let c of companyNameIds" [value]="c.id">{{c.name}}</mat-option>
+            </mat-select>
+        </mat-form-field>     
         <mat-form-field class="w-full">
             <mat-label>Email</mat-label>
             <input matInput formControlName="email">
@@ -26,5 +28,5 @@
             <input matInput formControlName="photo">
         </mat-form-field>
     </form>
-    <button>Submit</button>
+    <button (click)="submitUser()">Submit</button>
 </div>
