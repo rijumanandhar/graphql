@@ -34,3 +34,21 @@ export const CREATE_COMPANY = gql`
         }
     }
 `
+
+export const UPDATE_COMPANY = gql`
+    mutation UpdateCompany($id: ID!,$name: String!, $email: String!, $phone: String!, $logo: String!){
+        updateCompany(id:$id, name:$name, email:$email, phone:$phone, logo:$logo){
+            id
+            name
+        }
+    }
+`
+
+export const DELETE_COMPANY = gql`
+    mutation UDeleteCompany($id: ID!){
+        deleteCompany(id:$id){
+            id
+            name
+        }
+    }
+`

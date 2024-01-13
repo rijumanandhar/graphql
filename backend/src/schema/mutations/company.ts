@@ -20,6 +20,7 @@ export const CREATE_COMPANY = {
 export const UPDATE_COMPANY = {
     type: CompanyType,
     args: {
+        id: {type: GraphQLID},
         name: {type: GraphQLString},
         email: {type: GraphQLString},
         logo: {type: GraphQLString},

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GET_ALL_COMPANY} from '../graphql.operations'
+import { DELETE_COMPANY, GET_ALL_COMPANY} from '../graphql.operations'
 import { Apollo } from 'apollo-angular';
 import { MatDialog } from '@angular/material/dialog';
 import { AddCompanyComponent } from './add-company/add-company.component';
@@ -20,10 +20,10 @@ export class CompanyComponent implements OnInit {
   dataSourceUser = UserData;
   public selectedCompany : Company;
 
-  constructor(public dialog: MatDialog, private appllo: Apollo){}
+  constructor(public dialog: MatDialog, private apollo: Apollo){}
 
   ngOnInit(): void {
-    this.appllo.watchQuery({
+    this.apollo.watchQuery({
       query: GET_ALL_COMPANY
     }).valueChanges.subscribe(({ data, error}: any ) => {
       this.dataSourceCompany = data.getAllCompany;
@@ -83,5 +83,23 @@ export class CompanyComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('Success');
     });
+  }
+
+  public deleteCompany(){
+    this.apollo
+    .mutate({
+      mutation: DELETE_COMPANY,
+      variables: {
+        id: this.selectedCompany.id,
+      },
+    })
+    .subscribe(
+      ({ data }) => {
+        console.log('Successfully Deleted', data);
+      },
+      error => {
+        console.log('there was an error sending the query', error);
+      },
+    );
   }
 }

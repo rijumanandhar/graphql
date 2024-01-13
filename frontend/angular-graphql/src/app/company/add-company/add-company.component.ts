@@ -3,7 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Company } from '../company.utils';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Apollo } from 'apollo-angular';
-import { CREATE_COMPANY } from '../../graphql.operations';
+import { CREATE_COMPANY, UPDATE_COMPANY } from '../../graphql.operations';
 
 @Component({
   selector: 'add-company',
@@ -36,30 +36,36 @@ export class AddCompanyComponent implements OnInit {
   }
 
   public submitCompany(){
+    let variables;
     if(this.updateMode){
-      //update form group data
+      variables= {
+        id: this.data.id,
+        name: this.companyFormGroup.get('name')?.value,
+        email:this.companyFormGroup.get('email')?.value,
+        phone:this.companyFormGroup.get('phone')?.value,
+        logo:this.companyFormGroup.get('photo')?.value,
+      }
     }else{
-      console.log(this.companyFormGroup)
-      //post form group data
-      this.apollo
-      .mutate({
-        mutation: CREATE_COMPANY,
-        variables: {
-          name: this.companyFormGroup.get('name')?.value,
-          email:this.companyFormGroup.get('email')?.value,
-          phone:this.companyFormGroup.get('phone')?.value,
-          logo:this.companyFormGroup.get('photo')?.value,
-        },
-      })
-      .subscribe(
-        ({ data }) => {
-          console.log('got data', data);
-          this.dialogRef.close();
-        },
-        error => {
-          console.log('there was an error sending the query', error);
-        },
-      );
+      variables= {
+        name: this.companyFormGroup.get('name')?.value,
+        email:this.companyFormGroup.get('email')?.value,
+        phone:this.companyFormGroup.get('phone')?.value,
+        logo:this.companyFormGroup.get('photo')?.value,
+      }
     }
+    this.apollo
+    .mutate({
+      mutation: this.updateMode? UPDATE_COMPANY: CREATE_COMPANY,
+      variables,
+    })
+    .subscribe(
+      ({ data }) => {
+        console.log('got data', data);
+        this.dialogRef.close();
+      },
+      error => {
+        console.log('there was an error sending the query', error);
+      },
+    );
   }
 }
