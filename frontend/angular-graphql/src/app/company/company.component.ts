@@ -62,7 +62,6 @@ export class CompanyComponent implements OnInit {
   public addCompany(){
     console.log('add company')
     const dialogRef = this.dialog.open(AddCompanyComponent, {
-      height: '400px',
       width: '600px',
     }
     );
@@ -74,7 +73,6 @@ export class CompanyComponent implements OnInit {
 
   public editCompany(){
     const dialogRef = this.dialog.open(AddCompanyComponent, {
-      height: '400px',
       width: '600px',
       data: this.selectedCompany,
     }
