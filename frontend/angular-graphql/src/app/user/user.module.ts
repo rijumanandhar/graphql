@@ -9,12 +9,14 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ViewUserDialogComponent } from './view-user-dialog/view-user-dialog.component';
+import { AddEditUserComponent } from './add-edit-user/add-edit-user.component';
 
 @NgModule({
   declarations: [
     UserComponent,
     ViewUserProfileComponent,
     ViewUserDialogComponent,
+    AddEditUserComponent,
   ],
   imports: [
     BrowserModule,
