@@ -1,13 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  MatDialog,
-  MAT_DIALOG_DATA,
-  MatDialogRef,
-  MatDialogTitle,
-  MatDialogContent,
-  MatDialogActions,
-  MatDialogClose,
-} from '@angular/material/dialog';
+import { GET_ALL_COMPANY} from '../graphql.operations'
+import { Apollo } from 'apollo-angular';
+import { MatDialog } from '@angular/material/dialog';
 import { AddCompanyComponent } from './add-company/add-company.component';
 import { Company, CompanyColumns, CompanyData} from './company.utils'
 import {User, UserColumns, UserData} from '../user/user.utils'
@@ -19,15 +13,23 @@ import { ViewUserDialogComponent } from '../user/view-user-dialog/view-user-dial
   styleUrl: './company.component.css'
 })
 export class CompanyComponent implements OnInit {
+  error: any
   displayedColumnsCompany: string[] = CompanyColumns;
   dataSourceCompany = CompanyData;
   displayedColumnsUser : string[] = UserColumns;
   dataSourceUser = UserData;
   public selectedCompany : Company;
 
-  constructor(public dialog: MatDialog){}
+  constructor(public dialog: MatDialog, private appllo: Apollo){}
+
   ngOnInit(): void {
-   
+    this.appllo.watchQuery({
+      query: GET_ALL_COMPANY
+    }).valueChanges.subscribe(({ data, error}: any ) => {
+      this.dataSourceCompany = data.getAllCompany;
+      this.error = error;
+      console.log(this.dataSourceCompany)
+    })
   }
 
   public clickCompany(data:Company){

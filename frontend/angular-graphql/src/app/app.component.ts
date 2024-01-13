@@ -12,9 +12,7 @@ export class AppComponent implements OnInit {
   users: any[] = [];
   error: any
 
-  constructor(private appllo: Apollo){
-
-  }
+  constructor(private appllo: Apollo){}
 
   ngOnInit(): void {
     this.appllo.watchQuery({

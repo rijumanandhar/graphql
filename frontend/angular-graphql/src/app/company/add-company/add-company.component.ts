@@ -1,7 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Company } from '../company.utils';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Apollo } from 'apollo-angular';
+import { CREATE_COMPANY } from '../../graphql.operations';
 
 @Component({
   selector: 'add-company',
@@ -17,7 +19,11 @@ export class AddCompanyComponent implements OnInit {
     photo: new FormControl(''),
   });
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: Company) { }
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: Company,
+    private apollo: Apollo,
+    public dialogRef: MatDialogRef<AddCompanyComponent>,
+  ) { }
   
   ngOnInit(): void {
    if(this.data){
@@ -33,7 +39,27 @@ export class AddCompanyComponent implements OnInit {
     if(this.updateMode){
       //update form group data
     }else{
+      console.log(this.companyFormGroup)
       //post form group data
+      this.apollo
+      .mutate({
+        mutation: CREATE_COMPANY,
+        variables: {
+          name: this.companyFormGroup.get('name')?.value,
+          email:this.companyFormGroup.get('email')?.value,
+          phone:this.companyFormGroup.get('phone')?.value,
+          logo:this.companyFormGroup.get('photo')?.value,
+        },
+      })
+      .subscribe(
+        ({ data }) => {
+          console.log('got data', data);
+          this.dialogRef.close();
+        },
+        error => {
+          console.log('there was an error sending the query', error);
+        },
+      );
     }
   }
 }
