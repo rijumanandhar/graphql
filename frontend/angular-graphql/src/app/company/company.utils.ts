@@ -1,9 +1,9 @@
 export class Company{
     id: number;
-    companyName: string;
-    phoneNumber: string;
+    name: string;
+    phone: string;
     email: string;
-    companyLogo: string;
+    logo: string;
 };
 
 export const CompanyColumns = ["name","phoneNumber", "email", "logo"]
@@ -11,37 +11,37 @@ export const CompanyColumns = ["name","phoneNumber", "email", "logo"]
 export const CompanyData: Company[] = [
     {
         id: 1,
-        companyName: "Company 1",
-        phoneNumber: "12345",
+        name: "Company 1",
+        phone: "12345",
         email:"Company12345@company.com",
-        companyLogo:"Company12345",
+        logo:"Company12345",
     },
     {
         id: 2,
-        companyName: "Company 2",
-        phoneNumber: "23456",
+        name: "Company 2",
+        phone: "23456",
         email:"Company23456@company.com",
-        companyLogo:"Company23456",
+        logo:"Company23456",
     },
     {
         id: 3,
-        companyName: "Company 3",
-        phoneNumber: "34567",
+        name: "Company 3",
+        phone: "34567",
         email:"Company34567@company.com",
-        companyLogo:"Company34567",
+        logo:"Company34567",
     },
     {
         id: 4,
-        companyName: "Company 4",
-        phoneNumber: "45678",
+        name: "Company 4",
+        phone: "45678",
         email:"Company34567@company.com",
-        companyLogo:"Company34567",
+        logo:"Company34567",
     },
     {
         id: 5,
-        companyName: "Company 5",
-        phoneNumber: "56789",
+        name: "Company 5",
+        phone: "56789",
         email:"Company56789@company.com",
-        companyLogo:"Company56789",
+        logo:"Company56789",
     },
 ];

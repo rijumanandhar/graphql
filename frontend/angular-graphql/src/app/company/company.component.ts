@@ -36,10 +36,10 @@ export class CompanyComponent implements OnInit {
     console.log(data);
     this.selectedCompany = new Company();
     this.selectedCompany.id = data.id;
-    this.selectedCompany.companyName = data.companyName;
+    this.selectedCompany.name = data.name;
     this.selectedCompany.email = data.email;
-    this.selectedCompany.phoneNumber = data.phoneNumber;
-    this.selectedCompany.companyLogo = data.companyLogo;
+    this.selectedCompany.phone = data.phone;
+    this.selectedCompany.logo = data.logo;
   }
 
   public clickUser(data:User){

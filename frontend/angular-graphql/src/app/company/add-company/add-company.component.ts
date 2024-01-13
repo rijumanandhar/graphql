@@ -28,10 +28,10 @@ export class AddCompanyComponent implements OnInit {
   ngOnInit(): void {
    if(this.data){
     this.updateMode = true;
-    this.companyFormGroup.get('name')?.setValue(this.data.companyName);
-    this.companyFormGroup.get('phone')?.setValue(this.data.phoneNumber);
+    this.companyFormGroup.get('name')?.setValue(this.data.name);
+    this.companyFormGroup.get('phone')?.setValue(this.data.phone);
     this.companyFormGroup.get('email')?.setValue(this.data.email);
-    this.companyFormGroup.get('photo')?.setValue(this.data.companyLogo);
+    this.companyFormGroup.get('photo')?.setValue(this.data.logo);
    }
   }
 
