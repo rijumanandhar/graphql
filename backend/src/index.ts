@@ -3,7 +3,8 @@ import { graphqlHTTP } from 'express-graphql' ;
 import cors from 'cors' //TODO: to connect to REACT apparently
 import { createConnection } from 'typeorm'; //to connect to db
 import {schema} from './schema';
-import {Users} from './Entities/users'
+import {Users} from './Entities/users';
+import {Company} from './Entities/company';
 
 const main = async () => {
 
@@ -14,7 +15,7 @@ const main = async () => {
         password: "@dmin123",
         logging: true,
         synchronize: false,
-        entities: [Users],
+        entities: [Users, Company],
     });
     
 
