@@ -1,14 +1,14 @@
 <div *ngIf="selectedUserData">
     <mat-card>
       <mat-card-header>
-        <div class="grid grid-cols-2 gap-72">
+        <div class="grid grid-cols-2 gap-4">
           <div>
             <h1 class="text-5xl mt-5 font-bold">
               User Info
             </h1>
           </div>
           <div>
-            <button class="float-right pt-3 border-none" (click)="editUser()">Edit</button>
+            <button class="float-right pt-3 hover:bg-accent-yellow" (click)="editUser()">Edit</button>
           </div>
         </div>    
       </mat-card-header>
@@ -30,7 +30,7 @@
             <p>Company:</p>
             <p>{{selectedUserData.companyId}}</p>
           </div>
-          <div class="pl-24">
+          <div class="p-2">
             <img src="../../assets/1.jpg" class="userIcon">
           </div>
         </div>
