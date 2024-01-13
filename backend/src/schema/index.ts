@@ -1,5 +1,5 @@
 import { GraphQLObjectType, GraphQLSchema } from "graphql";
-import { GET_ALL_USERS} from './queries/user'
+import { GET_ALL_USERS, GET_ALL_USERS_BY_COMPANY} from './queries/user'
 import { CREATE_USER, DELETE_USER, UPDATE_USER } from "./mutations/user";
 import { GET_ALL_COMPANY } from "./queries/company";
 import { CREATE_COMPANY, DELETE_COMPANY, UPDATE_COMPANY } from "./mutations/company";
@@ -8,6 +8,7 @@ const rootQuery = new GraphQLObjectType({
     name: "RootQuery",
     fields: {
         getAllUsers: GET_ALL_USERS,
+        getAllUSerByCompany: GET_ALL_USERS_BY_COMPANY,
         getAllCompany: GET_ALL_COMPANY,
     }
 })
