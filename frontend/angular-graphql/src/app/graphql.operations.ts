@@ -13,6 +13,19 @@ export const GET_USERS = gql`
         }
     }
 `
+export const GET_USERS_BY_COMPANY = gql`
+   query GetUserByCompany($companyId:Int!){
+        getAllUSerByCompany(companyId:$companyId){
+                id
+                username
+                fullname
+                email
+                photo
+                phone
+                companyId
+        }
+    }
+`
 
 export const CREATE_USER = gql`
     mutation CreateUser(

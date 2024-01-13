@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DELETE_COMPANY, GET_ALL_COMPANY} from '../graphql.operations'
+import { DELETE_COMPANY, GET_ALL_COMPANY, GET_USERS_BY_COMPANY} from '../graphql.operations'
 import { Apollo } from 'apollo-angular';
 import { MatDialog } from '@angular/material/dialog';
 import { AddCompanyComponent } from './add-company/add-company.component';
@@ -17,7 +17,7 @@ export class CompanyComponent implements OnInit {
   displayedColumnsCompany: string[] = CompanyColumns;
   dataSourceCompany = CompanyData;
   displayedColumnsUser : string[] = UserColumns;
-  dataSourceUser = UserData;
+  dataSourceUser : User[];
   public selectedCompany : Company;
 
   constructor(public dialog: MatDialog, private apollo: Apollo){}
@@ -33,13 +33,26 @@ export class CompanyComponent implements OnInit {
   }
 
   public clickCompany(data:Company){
-    console.log(data);
     this.selectedCompany = new Company();
     this.selectedCompany.id = data.id;
     this.selectedCompany.name = data.name;
     this.selectedCompany.email = data.email;
     this.selectedCompany.phone = data.phone;
     this.selectedCompany.logo = data.logo;
+    this.getUserDataByCompany()
+  }
+
+  public getUserDataByCompany(){
+    this.apollo.watchQuery({
+      query: GET_USERS_BY_COMPANY,
+      variables: {
+        companyId: parseInt(this.selectedCompany.id.toString())
+      }
+    }).valueChanges.subscribe(({ data, error}: any ) => {
+      this.dataSourceUser = data.getAllUSerByCompany;
+      this.error = error;
+      console.log(this.dataSourceUser)
+    })
   }
 
   public clickUser(data:User){

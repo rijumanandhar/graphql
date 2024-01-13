@@ -41,7 +41,7 @@
         User Data for {{selectedCompany.name}}
       </h1>
       <div>
-        <table mat-table [dataSource]="dataSourceUser" class="mat-elevation-z8 demo-table">
+        <table *ngIf="dataSourceUser" mat-table [dataSource]="dataSourceUser" class="mat-elevation-z8 demo-table">
           <ng-container matColumnDef="username">
             <th mat-header-cell *matHeaderCellDef>username</th>
             <td mat-cell *matCellDef="let element">{{element.username}}</td>
