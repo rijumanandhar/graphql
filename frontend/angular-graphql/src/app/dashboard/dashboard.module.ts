@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { DashboardComponent } from './dashboard.component';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -8,6 +9,7 @@ import { DashboardComponent } from './dashboard.component';
   ],
   imports: [
     BrowserModule,
+    MatTableModule,
   ],
  
 })
